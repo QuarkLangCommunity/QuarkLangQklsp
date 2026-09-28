@@ -1,0 +1,22 @@
+{
+  "name": "quarklang",
+  "displayName": "QuarkLang",
+  "description": "QuarkLang 语法高亮 + 诊断（经 qklsp 语言服务器）",
+  "version": "0.1.0",
+  "publisher": "QuarkLangCommunity",
+  "engines": { "vscode": "^1.75.0" },
+  "categories": ["Programming Languages"],
+  "contributes": {
+    "languages": [
+      {
+        "id": "quarklang",
+        "aliases": ["QuarkLang", "qk"],
+        "extensions": [".qk"],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      { "language": "quarklang", "scopeName": "source.qk", "path": "./syntaxes/quarklang.tmLanguage.json" }
+    ]
+  }
+}

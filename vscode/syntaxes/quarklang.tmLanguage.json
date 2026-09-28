@@ -1,0 +1,58 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "QuarkLang",
+  "scopeName": "source.qk",
+  "patterns": [
+    { "include": "#comments" },
+    { "include": "#strings" },
+    { "include": "#numbers" },
+    { "include": "#keywords" },
+    { "include": "#types" },
+    { "include": "#dunders" },
+    { "include": "#functions" },
+    { "include": "#operators" }
+  ],
+  "repository": {
+    "comments": {
+      "patterns": [
+        { "name": "comment.line.double-slash.qk", "match": "//.*$" },
+        { "name": "comment.block.qk", "begin": "/\\*", "end": "\\*/" }
+      ]
+    },
+    "strings": {
+      "patterns": [
+        { "name": "string.quoted.double.qk", "begin": "\"", "end": "\"", "patterns": [ { "name": "constant.character.escape.qk", "match": "\\\\." } ] },
+        { "name": "string.quoted.raw.qk", "begin": "\u0060", "end": "\u0060" }
+      ]
+    },
+    "numbers": {
+      "patterns": [ { "name": "constant.numeric.qk", "match": "\\b[0-9]+(\\.[0-9]+)?\\b" } ]
+    },
+    "keywords": {
+      "patterns": [
+        { "name": "keyword.control.qk", "match": "\\b(if|else|while|for|break|return|log|delete|try|catch|new|expand|import|pub|inline)\\b" },
+        { "name": "keyword.declaration.qk", "match": "\\b(program|library|fn|type|struct|interface|impl|space|const|copyd|dynamic|Self|void|main)\\b" },
+        { "name": "constant.language.qk", "match": "\\b(true|false|null|nil)\\b" }
+      ]
+    },
+    "types": {
+      "patterns": [
+        { "name": "storage.type.qk", "match": "\\b(int|long|float|double|bool|String|List|HashTable|pointer|thread|Channel|IOStream|InputStream|OutputStream|memorize|function)\\b" }
+      ]
+    },
+    "dunders": {
+      "patterns": [
+        { "name": "entity.name.function.operator.qk", "match": "\\b__(add|sub|mul|div|mod|neg|eq|ne|lt|le|gt|ge)__\\b" }
+      ]
+    },
+    "functions": {
+      "patterns": [
+        { "name": "entity.name.function.qk", "match": "(?<=\\bfn\\s)[A-Za-z_][A-Za-z0-9_]*" },
+        { "name": "entity.name.type.qk", "match": "(?<=\\b(?:struct|interface|impl)\\s)[A-Za-z_][A-Za-z0-9_]*" }
+      ]
+    },
+    "operators": {
+      "patterns": [ { "name": "keyword.operator.qk", "match": "::|->|==|!=|<=|>=|&&|\\|\\||<<|>>|[-+*/%<>=!&|@#?~^.]" } ]
+    }
+  }
+}
