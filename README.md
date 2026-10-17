@@ -1,5 +1,10 @@
 # QuarkLangQklsp
 
+> **Superseded. The maintained implementation** is
+> [`cmd/qklsp`](https://github.com/QuarkLangCommunity/QuarkLangQkc/tree/main/cmd/qklsp)
+> in the QuarkLang compiler repository. This standalone repository is kept for history; it is not
+> updated from that source, and its code differs from the maintained implementation.
+
 QuarkLang 语言服务器（LSP over stdio）+ VSCode 扩展——工具链成员。
 
 ## 能力
